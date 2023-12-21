@@ -1,0 +1,119 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-12-21T12:16:06.174Z",
+    "end": "2023-12-21T12:16:08.053Z",
+    "duration": 1879,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e946f876-35d6-47bc-afeb-475f8cd04b60",
+      "title": "",
+      "fullFile": "cypress/e2e/update-profile.cy.js",
+      "file": "cypress/e2e/update-profile.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d2df6a98-6a2d-4ff2-b2b5-30a51c2c90d6",
+          "title": "Update profile",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should successfully update profile",
+              "fullTitle": "Update profile should successfully update profile",
+              "timedOut": null,
+              "duration": 964,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'PUT',\n  url: _routes.BASE_URL.baseUrl + _routes.UPDATE_PROFILE.updateProfile,\n  body: {\n    name: \"gavikoto\"\n  },\n  headers: {\n    Authorization: accessToken\n  }\n}).then(response => {\n  expect(response.status).to.equal(200);\n  expect(response.body.data).to.equal('Username Anda menjadi gavikoto');\n  expect(response.body.status).to.equal('SUCCESS_UPDATE_PROFILE');\n  expect(response.body.message).to.equal('Berhasil Perbarui Profile');\n});",
+              "err": {},
+              "uuid": "ea2ffdb6-0fb8-422d-a42e-4697a8708004",
+              "parentUUID": "d2df6a98-6a2d-4ff2-b2b5-30a51c2c90d6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should fail update profile using invalid authorization",
+              "fullTitle": "Update profile should fail update profile using invalid authorization",
+              "timedOut": null,
+              "duration": 873,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'PUT',\n  url: _routes.BASE_URL.baseUrl + _routes.UPDATE_PROFILE.updateProfile,\n  body: {\n    name: \"gavikoto\"\n  },\n  headers: {\n    Authorization: \"c2f4fa287dcd0aca98825239633bb\"\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.equal(420);\n  expect(response.body.data).to.equal(`User's not found`);\n  expect(response.body.status).to.equal('FAILED_LOGIN');\n  expect(response.body.message).to.equal('Credential is not valid');\n});",
+              "err": {},
+              "uuid": "d36d672d-797d-4778-9856-226ffa17bd4d",
+              "parentUUID": "d2df6a98-6a2d-4ff2-b2b5-30a51c2c90d6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ea2ffdb6-0fb8-422d-a42e-4697a8708004",
+            "d36d672d-797d-4778-9856-226ffa17bd4d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1837,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
