@@ -1,4 +1,3 @@
-import { ROUTES } from '../const/routes';
 import { BASE_URL } from '../const/routes';
 import { REGISTER } from '../const/routes';
 
